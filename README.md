@@ -3,13 +3,11 @@
 ## how to build
 ```
 g++ -g3 -std=c++11 ./main.cpp -o main
-g++ -shared -fPIC -std=c++11 -g3 hook.cpp -o libhook.so
+g++ -g3 -std=c++11 -shared -fPIC hook.cpp -o libhook.so
 g++ -g3 -std=c++11 ./main_hook.cpp -o main_hook
 ```
 
-## `gdb`を利用する場合には`rdynamic`関係なしに、共有ライブラリから実行ファイルの関数を呼び出すことが可能
-
-実行手順
+## how to run
 ```
 # terminal A
 LD_PRELOAD=./libstop_the_world.so:./libhook.so ./main
@@ -30,6 +28,7 @@ c
 c
 ```
 
+* `gdb`を利用する場合には`rdynamic`関係なしに、共有ライブラリから実行ファイルの関数を呼び出すことが可能
 * `main_hook`の場合、実行ファイルにhookするコマンドのシンボルを実行前に探すことができるので、下記の手順のようにわざわざattachする必要なしにhook可能
 * 実行ファイルのビルド時に`-rdynamic`を付加とすると、共有ライブラリから実行ファイルのシンボル情報を動的に取得できるようになる
 * ちなみに，仮に，`main.cpp`で`addXXX_hook`を呼び出すようにして、`-L. -lhook`を下記のコマンドに付加した際に、`-rdynamic`が無いと共有ライブラリ側から`addXXX`が見つからずにエラーとなる
