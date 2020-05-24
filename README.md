@@ -30,7 +30,8 @@ c
 
 * `gdb`を利用する場合には`rdynamic`関係なしに、共有ライブラリから実行ファイルの関数を呼び出すことが可能
 * `main_hook`の場合、実行ファイルにhookするコマンドのシンボルを実行前に探すことができるので、下記の手順のようにわざわざattachする必要なしにhook可能
-* 実行ファイルのビルド時に`-rdynamic`を付加とすると、共有ライブラリから実行ファイルのシンボル情報を動的に取得できるようになる
+* 実行ファイルをリンクするときに`-rdynamic`を付加とすると、共有ライブラリから実行ファイルのシンボル情報を動的に取得できるようになる
+  * [gccの\-rdynamic option 調査メモ \- Qiita]( https://qiita.com/takeoverjp/items/14fdf7ab0d0a76d83d30 )
 * ちなみに，仮に，`main.cpp`で`addXXX_hook`を呼び出すようにして、`-L. -lhook`を下記のコマンドに付加した際に、`-rdynamic`が無いと共有ライブラリ側から`addXXX`が見つからずにエラーとなる
 
 [rust\-examples/stop\-the\-world at master · umaumax/rust\-examples]( https://github.com/umaumax/rust-examples/tree/master/stop-the-world )
