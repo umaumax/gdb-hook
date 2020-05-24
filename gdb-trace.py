@@ -33,7 +33,7 @@ class FunctionEnterBreakpoint(gdb.Breakpoint):
     def stop(self):
         args = []
         info_args = gdb.execute('info args', from_tty=False, to_string=True)
-        if info_args is not 'No arguments.\n':
+        if info_args != 'No arguments.\n':
             # NOTE: filter non args output
             # e.g. 'Current language:  auto, The current source language is
             # "auto; currently c++".'
