@@ -1,14 +1,14 @@
 # gdb
 
 ## how to build
-```
+``` bash
 g++ -g3 -std=c++11 ./main.cpp -o main
 g++ -g3 -std=c++11 -shared -fPIC hook.cpp -o libhook.so
 g++ -g3 -std=c++11 ./main_hook.cpp -o main_hook
 ```
 
 ## how to run
-```
+``` bash
 # terminal A
 LD_PRELOAD=./libstop_the_world.so:./libhook.so ./main
 
