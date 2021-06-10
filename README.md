@@ -35,7 +35,7 @@ c
   * [gccの\-rdynamic option 調査メモ \- Qiita]( https://qiita.com/takeoverjp/items/14fdf7ab0d0a76d83d30 )
 * ちなみに，仮に，`main.cpp`で`addXXX_hook`を呼び出すようにして、`-L. -lhook`を下記のコマンドに付加した際に、`-rdynamic`が無いと共有ライブラリ側から`addXXX`が見つからずにエラーとなる
 
-[rust\-examples/stop\-the\-world at master · umaumax/rust\-examples]( https://github.com/umaumax/rust-examples/tree/master/stop-the-world )
+[umaumax/stop\-the\-world]( https://github.com/umaumax/stop-the-world )
 
 ## finish
 
